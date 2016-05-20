@@ -10,6 +10,13 @@
 #import "Track.h"
 #import "Album.h"
 
+/**
+ 
+ @brief This class is responsible for displaying the information for a given track in the main application collection view.
+ 
+ */
+
+
 @interface TrackCollectionViewCell ()
 
 @property(nonatomic, weak) IBOutlet UIImageView *albumCoverImageView;

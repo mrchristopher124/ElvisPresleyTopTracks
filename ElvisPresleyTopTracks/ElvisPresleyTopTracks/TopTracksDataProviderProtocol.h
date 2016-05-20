@@ -11,6 +11,12 @@
 @class Track;
 @class Album;
 
+/**
+ 
+ @brief This protocol defines the methodsthat a data provider of top tracks needs to implement.
+ 
+ */
+
 @protocol TopTracksDataProviderProtocol <NSObject>
 
 - (NSInteger)numberOfTracks;

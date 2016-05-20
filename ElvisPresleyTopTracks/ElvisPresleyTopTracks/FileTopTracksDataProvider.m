@@ -11,6 +11,12 @@
 #import "Track.h"
 #import "Album.h"
 
+/**
+ 
+ @brief This class knows how to fetch and store Elvis' top tracks and their associated albums from a json file embedded in the Xcode project.
+ 
+ */
+
 @interface FileTopTracksDataProvider ()
 
 @property(nonatomic, strong) NSMutableArray *topTracks;

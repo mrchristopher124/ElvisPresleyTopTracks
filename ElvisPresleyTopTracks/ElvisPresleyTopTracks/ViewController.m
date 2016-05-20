@@ -13,6 +13,14 @@
 #import "Album.h"
 #import "TrackCollectionViewCell.h"
 
+/**
+ 
+ @brief This class is the sole view controller of the application. It contains a header on its top half and a collection view on its bottom half.
+ 
+ @discussion The collection view uses a data provider to fetch the information to display and to provide the data for the UICollectionViewDataSource.
+ 
+ */
+
 @interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property(nonatomic, weak) IBOutlet UIView *headerView;

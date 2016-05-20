@@ -8,6 +8,12 @@
 
 #import "Track.h"
 
+/**
+ 
+ @brief This class encapsulates the basic information for a track.
+ 
+ */
+
 @implementation Track
 
 - (id)initWithDictionary:(NSDictionary*)trackDictionary

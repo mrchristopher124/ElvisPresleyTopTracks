@@ -8,6 +8,12 @@
 
 #import "Album.h"
 
+/**
+ 
+ @brief This class encapsulates the basic information for an album.
+ 
+ */
+
 @implementation Album
 
 - (id)initWithDictionary:(NSDictionary*)trackDictionary

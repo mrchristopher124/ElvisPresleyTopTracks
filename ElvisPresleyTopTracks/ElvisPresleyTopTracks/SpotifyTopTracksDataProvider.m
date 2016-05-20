@@ -11,6 +11,12 @@
 #import "Track.h"
 #import "Album.h"
 
+/**
+ 
+ @brief This class knows how to fetch and store Elvis' top tracks and their associated albums from Spotify.
+ 
+ */
+
 @interface SpotifyTopTracksDataProvider ()
 
 @property(nonatomic, strong) NSMutableArray *topTracks;

@@ -10,6 +10,12 @@
 #import "FileTopTracksDataProvider.h"
 #import "SpotifyTopTracksDataProvider.h"
 
+/**
+ 
+ @brief This class uses the factory pattern to make it easy to request different types of TopTracksDataProvider's
+ 
+ */
+
 @implementation TopTracksDataProviderFactory
 
 + (id<TopTracksDataProviderProtocol>)dataProviderOfType:(TopTracksDataProvider)dataProviderType
