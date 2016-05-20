@@ -19,11 +19,23 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="CD0-U3-RjH">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o2j-Og-SgE">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2j-Og-SgE">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkQ-F0-OrC">
+                                                <rect key="frame" x="279" y="140" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="xkQ-F0-OrC" firstAttribute="centerX" secondItem="o2j-Og-SgE" secondAttribute="centerX" id="gx5-R9-u7y"/>
+                                            <constraint firstItem="xkQ-F0-OrC" firstAttribute="centerY" secondItem="o2j-Og-SgE" secondAttribute="centerY" id="y65-j5-MHF"/>
+                                        </constraints>
                                     </view>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FgC-dI-IXZ">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FgC-dI-IXZ">
                                         <rect key="frame" x="0.0" y="300" width="600" height="300"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="clS-cb-71n">
                                             <size key="itemSize" width="50" height="50"/>
@@ -58,6 +70,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="albumTitleLabel" destination="xkQ-F0-OrC" id="rBJ-Pi-zek"/>
                         <outlet property="headerView" destination="o2j-Og-SgE" id="NNc-HD-vKw"/>
                         <outlet property="topTracksCollectionView" destination="FgC-dI-IXZ" id="8Yz-6P-L5x"/>
                     </connections>

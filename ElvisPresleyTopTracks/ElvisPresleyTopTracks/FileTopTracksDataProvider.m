@@ -7,17 +7,88 @@
 //
 
 #import "FileTopTracksDataProvider.h"
+#import <UIKit/UIKit.h>
+#import "Track.h"
+#import "Album.h"
+
+@interface FileTopTracksDataProvider ()
+
+@property(nonatomic, strong) NSMutableArray *topTracks;
+
+@property(nonatomic, strong) NSMutableDictionary *albums;
+
+@end
 
 @implementation FileTopTracksDataProvider
 
 - (NSInteger)numberOfTracks
 {
     return 0;
+    
+    //return [self.topTracks count];
 }
 
-- (id)trackAtIndexPath:(NSIndexPath *)indexPath
+- (Track*)trackAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    Track *track = self.topTracks[indexPath.row];
+    
+    return track;
+}
+
+- (Album*)albumWithId:(NSString*)albumId
+{
+    Album *album = self.albums[albumId];
+    
+    return album;
+}
+
+- (void)loadTopTracks
+{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"toptracks"
+                                                         ofType:@"json"];
+    
+    NSError* error;
+    
+    NSData *data = [NSData dataWithContentsOfFile:filePath
+                                          options:NSDataReadingUncached
+                                            error:&error];
+    
+    error = nil;
+    
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data
+                                                         options:kNilOptions
+                                                           error:&error];
+    
+    if (!error) {
+        
+        NSArray *loadedTracks = json[@"tracks"];
+        
+        NSLog(@"tracks: %@", loadedTracks);
+        
+        if (!self.topTracks) {
+            
+            self.topTracks = [[NSMutableArray alloc] initWithCapacity:[loadedTracks count]];
+            
+            self.albums = [[NSMutableDictionary alloc] init];
+            
+        }
+        
+        for (NSDictionary *trackDictionary in loadedTracks) {
+            
+            Track *track = [[Track alloc] initWithDictionary:trackDictionary];
+            
+            [self.topTracks addObject:track];
+            
+            NSString *albumId = trackDictionary[@"album"][@"id"];
+            
+            Album *album = [[Album alloc] initWithDictionary:trackDictionary];
+            
+            self.albums[albumId] = album;
+            
+        }
+        
+    }
+    
 }
 
 @end

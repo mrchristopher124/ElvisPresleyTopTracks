@@ -16,6 +16,9 @@
 		993938DD1CEEAC6A00BD72FF /* SpotifyTopTracksDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 993938DC1CEEAC6A00BD72FF /* SpotifyTopTracksDataProvider.m */; };
 		993938E01CEEAC7C00BD72FF /* FileTopTracksDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 993938DF1CEEAC7C00BD72FF /* FileTopTracksDataProvider.m */; };
 		993938E41CEEAE1400BD72FF /* TopTracksDataProviderFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 993938E31CEEAE1400BD72FF /* TopTracksDataProviderFactory.m */; };
+		993938E61CEEB1C400BD72FF /* toptracks.json in Resources */ = {isa = PBXBuildFile; fileRef = 993938E51CEEB1C400BD72FF /* toptracks.json */; };
+		993938E91CEEB60600BD72FF /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 993938E81CEEB60600BD72FF /* Track.m */; };
+		993938EC1CEEB61000BD72FF /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 993938EB1CEEB61000BD72FF /* Album.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,11 @@
 		993938E11CEEAC9500BD72FF /* TopTracksDataProviderProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopTracksDataProviderProtocol.h; sourceTree = "<group>"; };
 		993938E21CEEAE1400BD72FF /* TopTracksDataProviderFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTracksDataProviderFactory.h; sourceTree = "<group>"; };
 		993938E31CEEAE1400BD72FF /* TopTracksDataProviderFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopTracksDataProviderFactory.m; sourceTree = "<group>"; };
+		993938E51CEEB1C400BD72FF /* toptracks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = toptracks.json; sourceTree = "<group>"; };
+		993938E71CEEB60600BD72FF /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
+		993938E81CEEB60600BD72FF /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
+		993938EA1CEEB61000BD72FF /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
+		993938EB1CEEB61000BD72FF /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,11 @@
 				993938E11CEEAC9500BD72FF /* TopTracksDataProviderProtocol.h */,
 				993938E21CEEAE1400BD72FF /* TopTracksDataProviderFactory.h */,
 				993938E31CEEAE1400BD72FF /* TopTracksDataProviderFactory.m */,
+				993938E51CEEB1C400BD72FF /* toptracks.json */,
+				993938E71CEEB60600BD72FF /* Track.h */,
+				993938E81CEEB60600BD72FF /* Track.m */,
+				993938EA1CEEB61000BD72FF /* Album.h */,
+				993938EB1CEEB61000BD72FF /* Album.m */,
 			);
 			path = ElvisPresleyTopTracks;
 			sourceTree = "<group>";
@@ -154,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				993938D41CEEA91A00BD72FF /* LaunchScreen.storyboard in Resources */,
+				993938E61CEEB1C400BD72FF /* toptracks.json in Resources */,
 				993938D11CEEA91A00BD72FF /* Assets.xcassets in Resources */,
 				993938CF1CEEA91A00BD72FF /* Main.storyboard in Resources */,
 			);
@@ -166,8 +180,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				993938E91CEEB60600BD72FF /* Track.m in Sources */,
 				993938E01CEEAC7C00BD72FF /* FileTopTracksDataProvider.m in Sources */,
 				993938E41CEEAE1400BD72FF /* TopTracksDataProviderFactory.m in Sources */,
+				993938EC1CEEB61000BD72FF /* Album.m in Sources */,
 				993938CC1CEEA91A00BD72FF /* ViewController.m in Sources */,
 				993938C91CEEA91A00BD72FF /* AppDelegate.m in Sources */,
 				993938C61CEEA91A00BD72FF /* main.m in Sources */,

@@ -8,10 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+@class Track;
+@class Album;
+
 @protocol TopTracksDataProviderProtocol <NSObject>
 
 - (NSInteger)numberOfTracks;
 
-- (id)trackAtIndexPath:(NSIndexPath *)indexPath;
+- (Track*)trackAtIndexPath:(NSIndexPath *)indexPath;
+
+- (Album*)albumWithId:(NSString*)albumId;
+
+- (void)loadTopTracks;
 
 @end

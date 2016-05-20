@@ -9,12 +9,18 @@
 #import "ViewController.h"
 #import "TopTracksDataProviderProtocol.h"
 #import "TopTracksDataProviderFactory.h"
+#import "Track.h"
+#import "Album.h"
 
 @interface ViewController () <UICollectionViewDataSource>
 
 @property(nonatomic, weak) IBOutlet UIView *headerView;
+
 @property(nonatomic, weak) IBOutlet UICollectionView *topTracksCollectionView;
+
 @property(nonatomic, strong) id<TopTracksDataProviderProtocol> topTracksDataProvider;
+
+@property(nonatomic, weak) IBOutlet UILabel *albumTitleLabel;
 
 @end
 
@@ -28,11 +34,24 @@
     
     self.topTracksDataProvider = [TopTracksDataProviderFactory dataProviderOfType:TopTracksDataProviderFile];
     
+    [self.topTracksDataProvider loadTopTracks];
+    
+    Track *track = [self.topTracksDataProvider trackAtIndexPath:0];
+    
+    [self displayTrackAlbumInHeader:track];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)displayTrackAlbumInHeader:(Track*)track
+{
+    Album *album = [self.topTracksDataProvider albumWithId:track.albumId];
+    
+    self.albumTitleLabel.text = album.title;
 }
 
 #pragma mark - UICollectionViewDataSource
