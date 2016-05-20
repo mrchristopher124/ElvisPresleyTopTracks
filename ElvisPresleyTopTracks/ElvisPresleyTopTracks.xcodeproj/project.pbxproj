@@ -13,6 +13,9 @@
 		993938CF1CEEA91A00BD72FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 993938CD1CEEA91A00BD72FF /* Main.storyboard */; };
 		993938D11CEEA91A00BD72FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 993938D01CEEA91A00BD72FF /* Assets.xcassets */; };
 		993938D41CEEA91A00BD72FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 993938D21CEEA91A00BD72FF /* LaunchScreen.storyboard */; };
+		993938DD1CEEAC6A00BD72FF /* SpotifyTopTracksDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 993938DC1CEEAC6A00BD72FF /* SpotifyTopTracksDataProvider.m */; };
+		993938E01CEEAC7C00BD72FF /* FileTopTracksDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 993938DF1CEEAC7C00BD72FF /* FileTopTracksDataProvider.m */; };
+		993938E41CEEAE1400BD72FF /* TopTracksDataProviderFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 993938E31CEEAE1400BD72FF /* TopTracksDataProviderFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,13 @@
 		993938D01CEEA91A00BD72FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		993938D31CEEA91A00BD72FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		993938D51CEEA91A00BD72FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		993938DB1CEEAC6A00BD72FF /* SpotifyTopTracksDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpotifyTopTracksDataProvider.h; sourceTree = "<group>"; };
+		993938DC1CEEAC6A00BD72FF /* SpotifyTopTracksDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpotifyTopTracksDataProvider.m; sourceTree = "<group>"; };
+		993938DE1CEEAC7C00BD72FF /* FileTopTracksDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTopTracksDataProvider.h; sourceTree = "<group>"; };
+		993938DF1CEEAC7C00BD72FF /* FileTopTracksDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTopTracksDataProvider.m; sourceTree = "<group>"; };
+		993938E11CEEAC9500BD72FF /* TopTracksDataProviderProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopTracksDataProviderProtocol.h; sourceTree = "<group>"; };
+		993938E21CEEAE1400BD72FF /* TopTracksDataProviderFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTracksDataProviderFactory.h; sourceTree = "<group>"; };
+		993938E31CEEAE1400BD72FF /* TopTracksDataProviderFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopTracksDataProviderFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +77,13 @@
 				993938D21CEEA91A00BD72FF /* LaunchScreen.storyboard */,
 				993938D51CEEA91A00BD72FF /* Info.plist */,
 				993938C41CEEA91A00BD72FF /* Supporting Files */,
+				993938DB1CEEAC6A00BD72FF /* SpotifyTopTracksDataProvider.h */,
+				993938DC1CEEAC6A00BD72FF /* SpotifyTopTracksDataProvider.m */,
+				993938DE1CEEAC7C00BD72FF /* FileTopTracksDataProvider.h */,
+				993938DF1CEEAC7C00BD72FF /* FileTopTracksDataProvider.m */,
+				993938E11CEEAC9500BD72FF /* TopTracksDataProviderProtocol.h */,
+				993938E21CEEAE1400BD72FF /* TopTracksDataProviderFactory.h */,
+				993938E31CEEAE1400BD72FF /* TopTracksDataProviderFactory.m */,
 			);
 			path = ElvisPresleyTopTracks;
 			sourceTree = "<group>";
@@ -149,9 +166,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				993938E01CEEAC7C00BD72FF /* FileTopTracksDataProvider.m in Sources */,
+				993938E41CEEAE1400BD72FF /* TopTracksDataProviderFactory.m in Sources */,
 				993938CC1CEEA91A00BD72FF /* ViewController.m in Sources */,
 				993938C91CEEA91A00BD72FF /* AppDelegate.m in Sources */,
 				993938C61CEEA91A00BD72FF /* main.m in Sources */,
+				993938DD1CEEAC6A00BD72FF /* SpotifyTopTracksDataProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

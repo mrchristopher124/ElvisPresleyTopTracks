@@ -7,11 +7,14 @@
 //
 
 #import "ViewController.h"
+#import "TopTracksDataProviderProtocol.h"
+#import "TopTracksDataProviderFactory.h"
 
 @interface ViewController () <UICollectionViewDataSource>
 
 @property(nonatomic, weak) IBOutlet UIView *headerView;
 @property(nonatomic, weak) IBOutlet UICollectionView *topTracksCollectionView;
+@property(nonatomic, strong) id<TopTracksDataProviderProtocol> topTracksDataProvider;
 
 @end
 
@@ -22,6 +25,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.topTracksDataProvider = [TopTracksDataProviderFactory dataProviderOfType:TopTracksDataProviderFile];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,12 +39,14 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section;
 {
-    return 0;
+    return [self.topTracksDataProvider numberOfTracks];
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    id track = [self.topTracksDataProvider trackAtIndexPath:indexPath];
+    
     return nil;
 }
 
