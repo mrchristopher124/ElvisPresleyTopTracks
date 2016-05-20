@@ -13,6 +13,7 @@
 - (id)initWithDictionary:(NSDictionary*)trackDictionary;
 
 @property(nonatomic, strong) NSString *title;
+@property(nonatomic, strong) NSString *albumId;
 @property(nonatomic, assign) NSTimeInterval duration;
 
 @end

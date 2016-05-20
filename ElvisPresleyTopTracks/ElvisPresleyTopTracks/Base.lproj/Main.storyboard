@@ -22,40 +22,33 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2j-Og-SgE">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkQ-F0-OrC">
-                                                <rect key="frame" x="279" y="140" width="42" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YHR-Jk-QFz">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                            </imageView>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0sr-Xd-pyB">
+                                                <rect key="frame" x="282" y="131" width="37" height="37"/>
+                                            </activityIndicatorView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="xkQ-F0-OrC" firstAttribute="centerX" secondItem="o2j-Og-SgE" secondAttribute="centerX" id="gx5-R9-u7y"/>
-                                            <constraint firstItem="xkQ-F0-OrC" firstAttribute="centerY" secondItem="o2j-Og-SgE" secondAttribute="centerY" id="y65-j5-MHF"/>
+                                            <constraint firstAttribute="trailing" secondItem="YHR-Jk-QFz" secondAttribute="trailing" id="9N6-2U-Gox"/>
+                                            <constraint firstItem="YHR-Jk-QFz" firstAttribute="top" secondItem="o2j-Og-SgE" secondAttribute="top" id="BZe-lX-Ptp"/>
+                                            <constraint firstItem="YHR-Jk-QFz" firstAttribute="leading" secondItem="o2j-Og-SgE" secondAttribute="leading" id="TzI-Mp-WlQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="YHR-Jk-QFz" secondAttribute="bottom" id="kDY-yS-gIu"/>
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FgC-dI-IXZ">
                                         <rect key="frame" x="0.0" y="300" width="600" height="300"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="clS-cb-71n">
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="clS-cb-71n">
                                             <size key="itemSize" width="50" height="50"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ddk-si-8TJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </collectionViewCell>
-                                        </cells>
+                                        <cells/>
                                         <connections>
                                             <outlet property="dataSource" destination="BYZ-38-t0r" id="78v-la-I8G"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="x6M-o3-kwo"/>
                                         </connections>
                                     </collectionView>
                                 </subviews>
@@ -70,7 +63,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="albumTitleLabel" destination="xkQ-F0-OrC" id="rBJ-Pi-zek"/>
+                        <outlet property="albumCoverImageView" destination="YHR-Jk-QFz" id="07D-QP-cAh"/>
                         <outlet property="headerView" destination="o2j-Og-SgE" id="NNc-HD-vKw"/>
                         <outlet property="topTracksCollectionView" destination="FgC-dI-IXZ" id="8Yz-6P-L5x"/>
                     </connections>

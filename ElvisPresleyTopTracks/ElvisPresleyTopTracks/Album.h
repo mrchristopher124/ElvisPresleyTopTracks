@@ -14,6 +14,8 @@
 
 @property(nonatomic, strong) NSString *title;
 @property(nonatomic, strong) NSString *albumId;
-@property(nonatomic, strong) NSURL *coverImageURL;
+@property(nonatomic, strong) NSURL *largeCoverImageURL;
+@property(nonatomic, strong) NSURL *mediumCoverImageURL;
+@property(nonatomic, strong) NSURL *smallCoverImageURL;
 
 @end

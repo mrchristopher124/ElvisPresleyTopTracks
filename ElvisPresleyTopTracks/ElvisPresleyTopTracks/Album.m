@@ -26,7 +26,19 @@
         
         NSString *albumCoverImagePath = albumCoverImageDictionary[@"url"];
         
-        self.coverImageURL = [NSURL URLWithString:albumCoverImagePath];
+        self.largeCoverImageURL = [NSURL URLWithString:albumCoverImagePath];
+        
+        albumCoverImageDictionary = albumCovers[1];
+        
+        albumCoverImagePath = albumCoverImageDictionary[@"url"];
+        
+        self.mediumCoverImageURL = [NSURL URLWithString:albumCoverImagePath];
+        
+        albumCoverImageDictionary = albumCovers[2];
+        
+        albumCoverImagePath = albumCoverImageDictionary[@"url"];
+        
+        self.smallCoverImageURL = [NSURL URLWithString:albumCoverImagePath];
         
     }
     

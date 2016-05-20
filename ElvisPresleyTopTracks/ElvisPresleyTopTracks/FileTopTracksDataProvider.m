@@ -22,10 +22,8 @@
 @implementation FileTopTracksDataProvider
 
 - (NSInteger)numberOfTracks
-{
-    return 0;
-    
-    //return [self.topTracks count];
+{    
+    return [self.topTracks count];
 }
 
 - (Track*)trackAtIndexPath:(NSIndexPath *)indexPath
@@ -42,7 +40,7 @@
     return album;
 }
 
-- (void)loadTopTracks
+- (void)loadTopTracks:(void (^)())completionBlock
 {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"toptracks"
                                                          ofType:@"json"];
@@ -86,6 +84,16 @@
             self.albums[albumId] = album;
             
         }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            if (completionBlock) {
+                
+                completionBlock();
+                
+            }
+            
+        });
         
     }
     

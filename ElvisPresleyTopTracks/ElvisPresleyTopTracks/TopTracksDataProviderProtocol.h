@@ -19,6 +19,6 @@
 
 - (Album*)albumWithId:(NSString*)albumId;
 
-- (void)loadTopTracks;
+- (void)loadTopTracks:(void (^)())completionBlock;
 
 @end

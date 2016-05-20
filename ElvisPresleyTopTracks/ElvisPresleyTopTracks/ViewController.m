@@ -11,8 +11,9 @@
 #import "TopTracksDataProviderFactory.h"
 #import "Track.h"
 #import "Album.h"
+#import "TrackCollectionViewCell.h"
 
-@interface ViewController () <UICollectionViewDataSource>
+@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property(nonatomic, weak) IBOutlet UIView *headerView;
 
@@ -20,7 +21,11 @@
 
 @property(nonatomic, strong) id<TopTracksDataProviderProtocol> topTracksDataProvider;
 
-@property(nonatomic, weak) IBOutlet UILabel *albumTitleLabel;
+@property(nonatomic, weak) IBOutlet UIImageView *albumCoverImageView;
+
+@property(nonatomic, weak) IBOutlet UIActivityIndicatorView *loadCoverImageActivityIndicateView;
+
+@property(nonatomic, weak) IBOutlet UICollectionViewFlowLayout *flowLayout;
 
 @end
 
@@ -32,13 +37,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.topTracksDataProvider = [TopTracksDataProviderFactory dataProviderOfType:TopTracksDataProviderFile];
+    UINib *cellNib = [UINib nibWithNibName:@"TrackCollectionViewCell" bundle:nil];
     
-    [self.topTracksDataProvider loadTopTracks];
+    [self.topTracksCollectionView registerNib:cellNib forCellWithReuseIdentifier:@"TrackCollectionViewCell"];
     
-    Track *track = [self.topTracksDataProvider trackAtIndexPath:0];
+    self.topTracksDataProvider = [TopTracksDataProviderFactory dataProviderOfType:TopTracksDataProviderSpotify];
     
-    [self displayTrackAlbumInHeader:track];
+    [self.topTracksDataProvider loadTopTracks:^{
+        
+        Track *track = [self.topTracksDataProvider trackAtIndexPath:0];
+        
+        [self displayTrackAlbumInHeader:track];
+        
+        [self.topTracksCollectionView reloadData];
+        
+    }];
     
 }
 
@@ -51,7 +64,23 @@
 {
     Album *album = [self.topTracksDataProvider albumWithId:track.albumId];
     
-    self.albumTitleLabel.text = album.title;
+    self.albumCoverImageView.image = nil;
+    
+    [self.loadCoverImageActivityIndicateView startAnimating];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        
+        NSData *coverImageData = [NSData dataWithContentsOfURL:album.largeCoverImageURL];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self.loadCoverImageActivityIndicateView stopAnimating];
+            
+            self.albumCoverImageView.image = [UIImage imageWithData:coverImageData];
+            
+        });
+        
+    });
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -64,9 +93,41 @@
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    id track = [self.topTracksDataProvider trackAtIndexPath:indexPath];
+    TrackCollectionViewCell *cell = (TrackCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:@"TrackCollectionViewCell" forIndexPath:indexPath];
     
-    return nil;
+    return cell;
+}
+
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView*)collectionView didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    Track *track = [self.topTracksDataProvider trackAtIndexPath:indexPath];
+    
+    [self displayTrackAlbumInHeader:track];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TrackCollectionViewCell *trackCollectionViewCell = (TrackCollectionViewCell*)cell;
+    
+    Track *track = [self.topTracksDataProvider trackAtIndexPath:indexPath];
+    
+    Album *album = [self.topTracksDataProvider albumWithId:track.albumId];
+    
+    trackCollectionViewCell.track = track;
+    
+    trackCollectionViewCell.album = album;
+    
+}
+
+#pragma mark - UICollectionViewLayoutDelegate
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat cellWidth = collectionView.frame.size.width/2.0f;
+    
+    return CGSizeMake(cellWidth, cellWidth);
 }
 
 @end

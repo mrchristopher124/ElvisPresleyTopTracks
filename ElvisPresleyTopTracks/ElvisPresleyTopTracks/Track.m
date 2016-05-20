@@ -18,6 +18,8 @@
         
         self.title = trackDictionary[@"name"];
         
+        self.albumId = trackDictionary[@"album"][@"id"];
+        
         self.duration = [trackDictionary[@"duration_ms"] doubleValue];
         
     }

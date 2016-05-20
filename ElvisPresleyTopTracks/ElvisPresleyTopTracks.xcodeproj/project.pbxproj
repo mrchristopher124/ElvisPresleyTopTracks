@@ -19,6 +19,8 @@
 		993938E61CEEB1C400BD72FF /* toptracks.json in Resources */ = {isa = PBXBuildFile; fileRef = 993938E51CEEB1C400BD72FF /* toptracks.json */; };
 		993938E91CEEB60600BD72FF /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = 993938E81CEEB60600BD72FF /* Track.m */; };
 		993938EC1CEEB61000BD72FF /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 993938EB1CEEB61000BD72FF /* Album.m */; };
+		993938EF1CEEBF4300BD72FF /* TrackCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 993938EE1CEEBF4300BD72FF /* TrackCollectionViewCell.m */; };
+		993938F11CEED31F00BD72FF /* TrackCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993938F01CEED31F00BD72FF /* TrackCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,9 @@
 		993938E81CEEB60600BD72FF /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
 		993938EA1CEEB61000BD72FF /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
 		993938EB1CEEB61000BD72FF /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
+		993938ED1CEEBF4300BD72FF /* TrackCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackCollectionViewCell.h; sourceTree = "<group>"; };
+		993938EE1CEEBF4300BD72FF /* TrackCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackCollectionViewCell.m; sourceTree = "<group>"; };
+		993938F01CEED31F00BD72FF /* TrackCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +102,9 @@
 				993938E81CEEB60600BD72FF /* Track.m */,
 				993938EA1CEEB61000BD72FF /* Album.h */,
 				993938EB1CEEB61000BD72FF /* Album.m */,
+				993938ED1CEEBF4300BD72FF /* TrackCollectionViewCell.h */,
+				993938EE1CEEBF4300BD72FF /* TrackCollectionViewCell.m */,
+				993938F01CEED31F00BD72FF /* TrackCollectionViewCell.xib */,
 			);
 			path = ElvisPresleyTopTracks;
 			sourceTree = "<group>";
@@ -167,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				993938D41CEEA91A00BD72FF /* LaunchScreen.storyboard in Resources */,
+				993938F11CEED31F00BD72FF /* TrackCollectionViewCell.xib in Resources */,
 				993938E61CEEB1C400BD72FF /* toptracks.json in Resources */,
 				993938D11CEEA91A00BD72FF /* Assets.xcassets in Resources */,
 				993938CF1CEEA91A00BD72FF /* Main.storyboard in Resources */,
@@ -186,6 +195,7 @@
 				993938EC1CEEB61000BD72FF /* Album.m in Sources */,
 				993938CC1CEEA91A00BD72FF /* ViewController.m in Sources */,
 				993938C91CEEA91A00BD72FF /* AppDelegate.m in Sources */,
+				993938EF1CEEBF4300BD72FF /* TrackCollectionViewCell.m in Sources */,
 				993938C61CEEA91A00BD72FF /* main.m in Sources */,
 				993938DD1CEEAC6A00BD72FF /* SpotifyTopTracksDataProvider.m in Sources */,
 			);
@@ -304,6 +314,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.christopherwhite.ElvisPresleyTopTracks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -316,6 +327,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.christopherwhite.ElvisPresleyTopTracks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
