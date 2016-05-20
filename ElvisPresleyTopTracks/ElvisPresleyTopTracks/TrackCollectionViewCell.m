@@ -38,8 +38,6 @@
     
     NSString *string = [formatter stringFromTimeInterval:_track.duration * 0.001];
     
-    NSLog(@"%@", string);
-    
     self.durationLabel.text = string;
     
 }

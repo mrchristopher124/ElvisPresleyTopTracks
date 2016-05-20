@@ -61,8 +61,6 @@
         
         NSArray *loadedTracks = json[@"tracks"];
         
-        NSLog(@"tracks: %@", loadedTracks);
-        
         if (!self.topTracks) {
             
             self.topTracks = [[NSMutableArray alloc] initWithCapacity:[loadedTracks count]];
